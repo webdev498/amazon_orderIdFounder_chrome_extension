@@ -1,0 +1,42 @@
+{
+    "manifest_version": 2,
+    "name": "AMZ Reviewer Finder",
+    "version": "1.0",
+    "icons": {
+       "16": "/assets/img/favicon.png",
+       "64": "/assets/img/favicon.png"
+    },
+
+    "permissions": [
+        "tabs",
+        "chrome://favicon/",
+        "https://sellercentral.amazon.com/*",
+        "storage"
+    ],
+
+    "background" : {
+        "scripts" : [
+            "/assets/js/jquery-1.11.1.min.js", 
+            "/assets/js/background.js"
+        ]
+    },
+
+    "browser_action": {
+        "default_title": "Reviewer Finder",
+        "default_icon": "assets/img/favicon.png",
+        "default_popup": "assets/html/popup.html"
+    },
+
+    "content_scripts": [ {
+        "js": [
+            "/assets/js/jquery-1.11.1.min.js",
+            "/assets/js/content_script.js"
+        ],
+        "matches": [
+            "https://sellercentral.amazon.com/*"
+        ]
+    }],
+    "options_page": "assets/html/options.html",
+    "web_accessible_resources": [
+    ]
+}
